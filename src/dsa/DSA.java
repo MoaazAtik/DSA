@@ -7,6 +7,10 @@ public class DSA {
         System.out.println(o);
     }
     
+    public static void p2(Object o) {
+        System.out.print(o);
+    }
+    
 //    public static long duration() {
 //        long startingTime = System.nanoTime();
 //        //do some work here
