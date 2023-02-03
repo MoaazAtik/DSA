@@ -6,6 +6,9 @@ public class DSA {
     public static void p(Object o) {
         System.out.println(o);
     }
+    public static void p() {
+        System.out.println();
+    }
     
     public static void p2(Object o) {
         System.out.print(o);
