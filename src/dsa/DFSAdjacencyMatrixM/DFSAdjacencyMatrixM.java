@@ -1,9 +1,8 @@
-package dsa.AdjacencyMatrixM;
+package dsa.DFSAdjacencyMatrixM;
 
-import dsa.AdjacencyMatrixM.GraphM;
 import static dsa.DSA.p;
 
-public class AdjacencyMatrixM {
+public class DFSAdjacencyMatrixM {
     
 
     public static void main(String[] args) {
