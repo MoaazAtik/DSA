@@ -30,6 +30,9 @@ public class DFSAdjacencyMatrixM {
 
         graph.printWithHeaders();
 
+        graph.depthFirstSearch(0);
+        graph.dfsI(0);
+
     }
     
 }

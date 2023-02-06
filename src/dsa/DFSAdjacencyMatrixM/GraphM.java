@@ -3,6 +3,7 @@ package dsa.DFSAdjacencyMatrixM;
 import static dsa.DSA.p;
 import static dsa.DSA.p2;
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class GraphM {
     
@@ -61,6 +62,61 @@ public class GraphM {
             }
             p("");
         }
+        
+    }
+    
+    
+    //Bro's
+    //Recursive Depth First Search (DFS) method
+    public void depthFirstSearch(int src) {
+        boolean visited[] = new boolean[matrix.length];
+        
+        dFSHelper(src, visited);
+        
+    }
+
+    private void dFSHelper(int src, boolean[] visited) {
+        
+//        if (visited[src] == true) return; //base case 
+        if (visited[src]) return; //base case 
+        else {
+            visited[src] = true;
+            p2(nodes.get(src).data + " = visited ");
+        }
+        
+        for (int i = 0; i < matrix[src].length; i++) {
+            if (matrix[src][i] == 1) {
+                dFSHelper(i, visited);
+            }
+        }
+        return;
+        
+    }
+    
+    //Mine
+    //Iterative Depth First Search (DFS) method
+    public void dfsI(int src) {
+        
+        boolean visited[] = new boolean[matrix.length];
+        Stack<Integer> stack = new Stack();
+        stack.push(src);
+
+        while (!stack.isEmpty()) {
+            int u = stack.pop();
+            
+            if (!visited[u]) {
+                visited[u] = true;
+                p2(String.valueOf(u) + nodes.get(u).data + " ");
+                
+                for (int i = 0; i < matrix[u].length; i++) {
+//                    if (checkEdge(u, i) && !visited[i]) {     //This also does the same work
+                    if (matrix[u][i] == 1) {
+                        stack.push(i);
+                    }
+                }
+            }
+        }
+        p();
         
     }
     
