@@ -1,8 +1,10 @@
-package dsa.DFSAdjacencyMatrixM;
+package dsa.DfsBfsAMatrixM;
 
 import static dsa.DSA.p;
 import static dsa.DSA.p2;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class GraphM {
@@ -118,6 +120,64 @@ public class GraphM {
         }
         p();
         
+    }
+    
+    
+        
+    //Bro's
+    //Iterative Breadh First Search (BFS) method
+    public void breadthFirstSearch(int src) {
+        boolean visited[] = new boolean[matrix.length];
+        
+        Queue<Integer> queue = new LinkedList<>();
+        
+        queue.offer(src);
+        visited[src] = true;
+
+//        while (!queue.isEmpty()) {
+        while (queue.size() != 0) {
+            
+            src = queue.poll();
+            p2(src + " ");
+
+            for (int i = 0; i < matrix[src].length; i++) {
+                if (matrix[src][i] == 1 && !visited[i]) {
+                    queue.offer(i);
+                    visited[i] = true;
+                }
+            }
+        }
+        p();
+    }
+    
+    
+    
+    //Mine
+    //Recursive BFS
+    public void bfsR(int src) {
+        boolean visited[] = new boolean[matrix.length];
+        Queue<Integer> queue = new LinkedList<>();
+        
+        bfsHelper(src, visited, queue);
+        p();
+    }
+    public void bfsHelper(int src, boolean visited[], Queue<Integer> queue) {
+        
+        if (visited[src]) return; //base case
+        
+        visited[src] = true;
+        p2(src + " ");
+        
+        for (int i = 0; i < matrix[src].length; i++) {
+            if (matrix[src][i] == 1 && !visited[i]) {
+                queue.offer(i);
+            }
+        }
+        
+        while (!queue.isEmpty()) {
+            src = queue.poll();
+            bfsHelper(src, visited, queue);
+        }
     }
     
     

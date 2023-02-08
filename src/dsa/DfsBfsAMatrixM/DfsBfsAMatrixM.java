@@ -1,8 +1,6 @@
-package dsa.DFSAdjacencyMatrixM;
+package dsa.DfsBfsAMatrixM;
 
-import static dsa.DSA.p;
-
-public class DFSAdjacencyMatrixM {
+public class DfsBfsAMatrixM {
     
 
     public static void main(String[] args) {
@@ -20,6 +18,7 @@ public class DFSAdjacencyMatrixM {
         
         graph.addEdge(0, 1);
         graph.addEdge(1, 2);
+        graph.addEdge(1, 4);//
         graph.addEdge(2, 3);
         graph.addEdge(2, 4);
         graph.addEdge(4, 0);
@@ -32,6 +31,9 @@ public class DFSAdjacencyMatrixM {
 
         graph.depthFirstSearch(0);
         graph.dfsI(0);
+        
+        graph.breadthFirstSearch(0);
+        graph.bfsR(0);
 
     }
     
