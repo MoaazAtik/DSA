@@ -191,4 +191,25 @@ public class BinarySearchTreeM {
     }
     
     
+    //In-order Traversal
+    public void displayIn(NodeM root) {
+        if (root == null) return;
+        displayIn(root.left);
+        p2(root.data + " ");
+        displayIn(root.right);
+    }
+    //Post-order Traversal
+    public void displayPost(NodeM root) {
+        if (root == null) return;
+        displayPost(root.left);
+        displayPost(root.right);
+        p2(root.data + " ");
+    }
+    //Pre-order Traversal
+    public void displayPre(NodeM root) {
+        if (root == null) return;
+        p2(root.data + " ");
+        displayPre(root.left);
+        displayPre(root.right);
+    }
 }

@@ -40,12 +40,18 @@ public class Main {
         bstree.insert(new NodeM(8));
         
 //        bstree.removeW(5);
-        bstree.remove(5);
+//        bstree.remove(5);
         
         bstree.display();
         
         p(bstree.search(9));
         p(bstree.root.data);
+        
+        bstree.displayIn(bstree.root);
+        p();
+        bstree.displayPost(bstree.root);
+        p();
+        bstree.displayPre(bstree.root);
 
     }
     
