@@ -8,8 +8,9 @@ public class MergeSortM {
 
         int array[] = {8, 2, 5, 3, 4, 7, 6, 1};
         
-        bMergeSort(array);
-        
+//        bMergeSort(array);
+        myMergeSort(array);
+
         for (int i = 0; i < array.length; i++) {
             p(array[i]);
         }
@@ -70,6 +71,55 @@ public class MergeSortM {
             r++;
         }
     }
-    
-    
+
+
+    private static void myMergeSort(int[] array) {
+        // Divide
+        if (array.length <= 1) return; // Base case
+
+        int middleIndex = array.length / 2;
+        int[] leftArray = new int[middleIndex];
+        int[] rightArray = new int[array.length - middleIndex];
+
+        int i = 0;
+        for (int l = 0; l < leftArray.length; l++) {
+            leftArray[l] = array[i];
+            i++;
+        }
+        for (int r = 0; r < rightArray.length; r++) {
+            rightArray[r] = array[i];
+            i++;
+        }
+
+        myMergeSort(leftArray);
+        myMergeSort(rightArray);
+
+        helper(array, leftArray, rightArray);
+    }
+
+    private static void helper(int[] array, int[] leftArray, int[] rightArray) {
+        // Sort and Merge
+        int i = 0, l = 0, r = 0;
+        while (l < leftArray.length && r < rightArray.length) {
+            if (leftArray[l] < rightArray[r]) {
+                array[i] = leftArray[l];
+                l++;
+            } else {
+                array[i] = rightArray[r];
+                r++;
+            }
+            i++;
+        }
+
+        while (l < leftArray.length) {
+            array[i] = leftArray[l];
+            l++;
+            i++;
+        }
+        while (r < rightArray.length) {
+            array[i] = rightArray[r];
+            r++;
+            i++;
+        }
+    }
 }
