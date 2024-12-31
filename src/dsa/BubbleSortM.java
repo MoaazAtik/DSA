@@ -8,6 +8,7 @@ public class BubbleSortM {
 
         int array[] = {9, 3, 2, 4, 6, 7, 1, 8, 5};
 
+//        basicBubbleSort(array);
 //        myBubbleSort(array);
         bBubbleSort(array);
         for (int i : array) {
@@ -15,6 +16,18 @@ public class BubbleSortM {
         }
     }
 
+
+    public static void basicBubbleSort(int[] array) {
+        for (int i = 0; i < array.length; i++) {            // array.length "- 1" (Optimization)
+            for (int j = 0; j < array.length - 1; j++) {    // array.length - 1 "- i" (Optimization)
+                if (array[j] > array[j + 1]) {              // "<" for Descending order
+                    int temp = array[j + 1];
+                    array[j + 1] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+    }
     
     //My method
     public static void myBubbleSort(int array[]) {
