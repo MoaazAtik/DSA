@@ -9,8 +9,9 @@ public class QuickSortM {
         int array[] = {8, 2, 5, 3, 9, 4, 7, 6, 1};
         
 //        bQuickSort(array, 0, array.length - 1);
-        myQuickSort(array, 0, array.length - 1);
-        
+//        myQuickSort(array, 0, array.length - 1);
+        myQuickSort2(array, 0, array.length - 1);
+
         for (int i : array) {
             p(i);
         }
@@ -84,5 +85,30 @@ public class QuickSortM {
 //        myQuickSort(array, start, pivot - 1);
 //        myQuickSort(array, pivot + 1, end);
     }
+
     
+    private static void myQuickSort2(int[] array, int startIndex, int endIndex) {
+        if (endIndex <= startIndex) return;
+
+        int pivotIndex = endIndex;   // for readability (Optional). so it can be replaced with endIndex
+        int j = startIndex;
+        int i = j - 1;
+        while (j < pivotIndex) {
+            if (array[j] < array[pivotIndex]) {
+                i++;
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+            j++;
+        }
+        i++;
+        int temp = array[i];
+        array[i] = array[pivotIndex];   // or "j" or "endIndex" instead of pivotIndex
+        array[pivotIndex] = temp;
+        pivotIndex = i;                 // for readability (Optional)
+
+        myQuickSort2(array, startIndex, pivotIndex - 1);    // or "i" - 1
+        myQuickSort2(array, pivotIndex + 1, endIndex);     // or "i" + 1
+    }
 }
