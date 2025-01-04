@@ -139,7 +139,7 @@ public class DynamicArrayM {
             array[index] = o;
         }
         
-        //removes the element by its index
+        // (*needs fixing) removes the element by its index
         public void remove(int index) {
             //removing the element
             int i = index;
@@ -157,13 +157,13 @@ public class DynamicArrayM {
             }
         }
         
-        //removes the first occurence of an element
+        //removes the first occurrence of an element
         public void remove(Object o) {
             //removing the element
             for (int i = 0; i < array.length; i++) {
                 if (array[i] == o) {
                     
-                    //this will remove the element and check if the array could be shrinked
+                    //this will remove the element and check if the array could be shrunk
                     remove(i);
                 }
             }
@@ -175,7 +175,7 @@ public class DynamicArrayM {
             capacity = capacity * 3 / 2;
             Object newArray[] = new Object[capacity];
             
-            //copiying the old array elements to the the new one
+            //copying the old array elements to the new one
             for (int i = 0; i < array.length; i++) {
                 newArray[i] = array[i];
             }
@@ -189,7 +189,7 @@ public class DynamicArrayM {
             capacity = capacity * 2 / 3;
             Object newArray[] = new Object[capacity];
             
-            //copiying the elements from the old array to the new one
+            //copying the elements from the old array to the new one
             for (int i = 0; i < capacity; i++) {
                 newArray[i] = array[i];
             }
